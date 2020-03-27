@@ -1,0 +1,106 @@
+<div style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
+  <mat-card>
+    <mat-card-content>
+      <button routerLink="/voiture" style="margin-left:5px ; float: right" mat-raised-button>
+        <mat-icon>undo</mat-icon>
+      </button>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around">
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero de Chassis" type="text"
+                [formControl]="form.controls['numeroChassis']">
+              <mat-error
+                *ngIf="form.controls['numeroChassis'].hasError('required') && form.controls['numeroChassis'].touched"
+                class="mat-text-warn">Vous devez inclure un numero de Chassis.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero d'Immatricule" type="text"
+                [formControl]="form.controls['numeroImmat']">
+              <mat-error
+                *ngIf="form.controls['numeroImmat'].hasError('required') && form.controls['numeroImmat'].touched"
+                class="mat-text-warn">Vous devez inclure un Numero d'Immatricule.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Marque" type="text" [formControl]="form.controls['marque']">
+              <mat-error *ngIf="form.controls['marque'].hasError('required') && form.controls['marque'].touched"
+                class="mat-text-warn">Vous devez inclure une marque.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Modele" type="text" [formControl]="form.controls['modele']">
+              <mat-error *ngIf="form.controls['modele'].hasError('required') && form.controls['modele'].touched"
+                class="mat-text-warn">Vous devez inclure un modele.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Date de Circulation" type="datetime-local"
+                [formControl]="form.controls['dateCirculation']">
+              <mat-error
+                *ngIf="form.controls['dateCirculation'].hasError('required') && form.controls['dateCirculation'].touched"
+                class="mat-text-warn">Vous devez inclure date et heure de Circulation.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Puissance" type="text" [formControl]="form.controls['puissance']">
+              <mat-error *ngIf="form.controls['puissance'].hasError('required') && form.controls['puissance'].touched"
+                class="mat-text-warn">Vous devez inclure une puissance.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Nombre de Cylindre" type="text"
+                [formControl]="form.controls['nombreCylindre']">
+              <mat-error
+                *ngIf="form.controls['nombreCylindre'].hasError('required') && form.controls['nombreCylindre'].touched"
+                class="mat-text-warn">Vous devez inclure le nombre de Cylindres.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Prix de Location" type="number"
+                [formControl]="form.controls['prixLocation']">
+              <mat-error
+                *ngIf="form.controls['prixLocation'].hasError('required') && form.controls['prixLocation'].touched"
+                class="mat-text-warn">Vous devez inclure un prix de Location .</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Assureur" type="text" [formControl]="form.controls['assureur']">
+              <mat-error *ngIf="form.controls['assureur'].hasError('required') && form.controls['assureur'].touched"
+                class="mat-text-warn">Vous devez inclure un assureur.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Type d'assurance" type="text" [formControl]="form.controls['typeAss']">
+              <mat-error *ngIf="form.controls['typeAss'].hasError('required') && form.controls['typeAss'].touched"
+                class="mat-text-warn">Vous devez inclure le Type d'assurance.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Cotisation" type="text" [formControl]="form.controls['cotisation']">
+              <mat-error *ngIf="form.controls['cotisation'].hasError('required') && form.controls['cotisation'].touched"
+                class="mat-text-warn">Vous devez inclure un cotisation.</mat-error>
+            </mat-form-field>
+          </div>
+          <button routerLink="/voiture" style="margin-left:5px ; float: right" mat-raised-button>Annuler</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id == -1" [disabled]="form.invalid"
+            type="submit">Ajouter Voiture</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id != -1" [disabled]="form.invalid"
+            type="submit">Modifier Voiture</button>
+          <br>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

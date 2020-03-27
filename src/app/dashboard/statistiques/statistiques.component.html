@@ -1,0 +1,109 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Statistiques voiture</th>
+        <th scope="col">Modele</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Numéro d'immatriculation</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">La plus populaire</th>
+        <td>{{modele}}</td>
+        <td>****</td>
+        <td>****</td>
+        <td>****</td>
+      </tr>
+      <tr>
+        <th scope="row">La plus louée</th>
+        <td>{{maxNbLocations.voiture.modele}}</td>
+        <td>{{maxNbLocations.voiture.marque}}</td>
+        <td>{{maxNbLocations.voiture.numeroImmat}}</td>
+        <td>nombre de location : <b> {{maxNbLocations.nbLoc}}</b></td>
+      </tr>
+      <tr>
+        <th scope="row">La plus louée en jours</th>
+        <td>{{maxNbJoursLocation.voiture.modele}}</td>
+        <td>{{maxNbJoursLocation.voiture.marque}}</td>
+        <td>{{maxNbJoursLocation.voiture.numeroImmat}}</td>
+        <td>nombre de jours de location : <b> {{maxNbJoursLocation.nbJours}}</b></td>
+      </tr>
+      <tr>
+        <th scope="row">La jamais louée</th>
+        <td>{{nonLouee.voiture[0].modele}}</td>
+        <td>{{nonLouee.voiture[0].marque}}</td>
+        <td>{{nonLouee.voiture[0].numeroImmat}}</td>
+        <td>****</td>
+      </tr>
+      <tr>
+        <th scope="row">La plus rentable</th>
+        <td>{{voitureRentable.voiture.modele}}</td>
+        <td>{{voitureRentable.voiture.marque}}</td>
+        <td>{{voitureRentable.voiture.numeroImmat}}</td>
+        <td>montant total : <b> {{voitureRentable.montant}} DT</b></td>
+      </tr>
+      <tr>
+        <th scope="row">La plus accidentée</th>
+        <td>{{voiturePlusAccidentee.voiture[0]._id.modele}}</td>
+        <td>{{voiturePlusAccidentee.voiture[0]._id.marque}}</td>
+        <td>{{voiturePlusAccidentee.voiture[0]._id.numeroImmat}}</td>
+        <td>Nombre d'accidents : {{voiturePlusAccidentee.voiture[0].accident }}</td>
+      </tr>
+      <tr>
+        <th scope="row">La plus puissante</th>
+        <td>{{voiturePlusPuissante.voiture.modele}}</td>
+        <td>{{voiturePlusPuissante.voiture.marque}}</td>
+        <td>{{voiturePlusPuissante.voiture.numeroImmat}}</td>
+        <td>Puissance : {{voiturePlusPuissante.voiture.puissance}} chevaux</td>
+      </tr>
+      <tr>
+        <th scope="row">La plus longue durée de location</th>
+        <td>{{plusLouee.doc.voiture.modele}}</td>
+        <td>{{plusLouee.doc.voiture.marque}}</td>
+        <td>{{plusLouee.doc.voiture.numeroImmat}}</td>
+        <td>{{plusLouee.doc.nbJoursLocation}} Jours</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Statistiques client</th>
+        <th scope="col">Num CIN</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Le plus fidèle</th>
+        <td>{{clientFidele.client[0]._id.NCIN}}</td>
+        <td>{{clientFidele.client[0]._id.nom}}</td>
+        <td>{{clientFidele.client[0]._id.prenom}}</td>
+        <td>nombre de locations: {{clientFidele.nbloc}} </td>
+      </tr>
+      <tr>
+        <th scope="row">Le plus rentable</th>
+        <td>{{clientRentable.client[0]._id.NCIN}}</td>
+        <td>{{clientRentable.client[0]._id.nom}}</td>
+        <td>{{clientRentable.client[0]._id.prenom}}</td>
+        <td>montant total : <b> {{clientRentable.client[0].montant}} DT</b></td>
+      </tr>
+      <tr>
+        <th scope="row">ayant fait le plus d'accidents</th>
+        <td>{{clientAccident.client[0]._id.NCIN}}</td>
+        <td>{{clientAccident.client[0]._id.nom}}</td>
+        <td>{{clientAccident.client[0]._id.prenom}}</td>
+        <td>Nombre d'accidents : {{clientAccident.client[0].accident }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

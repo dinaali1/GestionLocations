@@ -1,0 +1,64 @@
+<div style="margin: 30px">
+  <button class="mat-blue-A700" routerLink="/voiture/-1" matTooltip="Ajouter une voiture" style="margin-bottom: 15px" mat-raised-button><mat-icon>add</mat-icon>Ajouter une voiture</button>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <div class="nb-items">
+    Nombre de voitures : {{nbVoitures}}
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="numeroChassis">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero chassis </th>
+        <td mat-cell *matCellDef="let row"> {{row.numeroChassis}} </td>
+      </ng-container>
+      <ng-container matColumnDef="numeroImmat">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero immatricule </th>
+        <td mat-cell *matCellDef="let row"> {{row.numeroImmat}} </td>
+      </ng-container>
+      <ng-container matColumnDef="marque">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Marque </th>
+        <td mat-cell *matCellDef="let row"> {{row.marque}} </td>
+      </ng-container>
+      <ng-container matColumnDef="modele">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Modele </th>
+        <td mat-cell *matCellDef="let row"> {{row.modele}} </td>
+      </ng-container>
+      <ng-container matColumnDef="dateCirculation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> date Circulation </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateCirculation|date:'short'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="puissance">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Puissance </th>
+        <td mat-cell *matCellDef="let row"> {{row.puissance}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombreCylindre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Cylindre </th>
+        <td mat-cell *matCellDef="let row"> {{row.nombreCylindre}} </td>
+      </ng-container>
+      <ng-container matColumnDef="prixLocation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix </th>
+        <td mat-cell *matCellDef="let row"> {{row.prixLocation}} </td>
+      </ng-container>
+      <ng-container matColumnDef="assurance">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> assurance </th>
+        <td mat-cell *matCellDef="let row">
+          <div>{{row.assurance.assureur}}</div>
+          <div>{{row.assurance.typeAss}}</div>
+          <div>{{row.assurance.cotisation}}</div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td  mat-cell *matCellDef="let row" >
+          <button matTooltip="Modifier"  mat-icon-button (click)="modifier(row._id)" ><mat-icon>edit</mat-icon> </button>
+          <button  matTooltip="Supprimer" mat-icon-button (click)="supp(row._id)"><mat-icon>delete</mat-icon></button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

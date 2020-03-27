@@ -1,0 +1,86 @@
+<div style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
+  <mat-card>
+    <mat-card-content>
+      <button routerLink="/location" style="margin-left:5px ; float: right" mat-raised-button>
+        <mat-icon>undo</mat-icon>
+      </button>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around">
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero de Chassis de la voiture" type="text"
+                [formControl]="form.controls['NChassis']">
+              <mat-error *ngIf="form.controls['NChassis'].hasError('required') && form.controls['NChassis'].touched"
+                class="mat-text-warn">Vous devez inclure le numéro de chassis de la voiture.</mat-error>
+            </mat-form-field>
+            <div *ngIf="carNotFound" class="not-found">le numéro de chassis est érroné </div>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero de CIN du client" type="number" [formControl]="form.controls['NCIN']">
+              <mat-error *ngIf="form.controls['NCIN'].hasError('required') && form.controls['NCIN'].touched"
+                class="mat-text-warn">Vous devez inclure le Numero de CIN du client.</mat-error>
+            </mat-form-field>
+            <div *ngIf="clientNotFound" class="not-found">le numéro de cin du client est érroné</div>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Promotion" type="number" [formControl]="form.controls['promotion']">
+              <mat-error *ngIf="form.controls['promotion'].hasError('required') && form.controls['promotion'].touched"
+                class="mat-text-warn">Vous devez inclure la promotion.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Montant" type="number" [formControl]="form.controls['montant']">
+              <mat-error *ngIf="form.controls['montant'].hasError('required') && form.controls['montant'].touched"
+                class="mat-text-warn">Vous devez inclure le montant de la location</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Date du début de la location" type="date"
+                [formControl]="form.controls['dateDeDebut']">
+              <mat-error
+                *ngIf="form.controls['dateDeDebut'].hasError('required') && form.controls['dateDeDebut'].touched"
+                class="mat-text-warn">Vous devez inclure la date de début.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Nombre de jours de location" type="number"
+                [formControl]="form.controls['nbJoursLocation']">
+              <mat-error
+                *ngIf="form.controls['nbJoursLocation'].hasError('required') && form.controls['nbJoursLocation'].touched"
+                class="mat-text-warn">Vous devez inclure le nombre de jours de location.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Description de l'Accident" type="text"
+                [formControl]="form.controls['accidentDescription']">
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Lieu de l'Accident" type="text"
+                [formControl]="form.controls['accidentLieu']">
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Date de l'Accident" type="date"
+                [formControl]="form.controls['accidentDate']">
+            </mat-form-field>
+          </div>
+          <button routerLink="/location" style="margin-left:5px ; float: right" mat-raised-button>Annuler</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id == -1" [disabled]="form.invalid"
+            type="submit">Ajouter une location</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id != -1" [disabled]="form.invalid"
+            type="submit">Modifier la location</button>
+          <br>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

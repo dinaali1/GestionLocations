@@ -1,0 +1,66 @@
+<div style="margin-left: 20%; margin-right: 20%; margin-top: 5%">
+  <mat-card>
+    <mat-card-content>
+      <button routerLink="/client" style="margin-left:5px ; float: right" mat-raised-button>
+        <mat-icon>Undo</mat-icon>
+      </button>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around">
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero CIN" type="number" [formControl]="form.controls['NCIN']">
+              <mat-error *ngIf="form.controls['NCIN'].hasError('required') && form.controls['NCIN'].touched"
+                class="mat-text-warn">Vous devez inclure un numero de CIN de 8 chiffres.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Numero de permis" type="number"
+                [formControl]="form.controls['numeroPermis']">
+              <mat-error
+                *ngIf="form.controls['numeroPermis'].hasError('required') && form.controls['numeroPermis'].touched"
+                class="mat-text-warn">Vous devez inclure un Numero de permis entre 6 et 8 chiffres.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Nom" type="text" [formControl]="form.controls['nom']">
+              <mat-error *ngIf="form.controls['nom'].hasError('required') && form.controls['nom'].touched"
+                class="mat-text-warn">Vous devez inclure un nom.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Prenom" type="text" [formControl]="form.controls['prenom']">
+              <mat-error *ngIf="form.controls['prenom'].hasError('required') && form.controls['prenom'].touched"
+                class="mat-text-warn">Vous devez inclure une prenom.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Date de Naissance" type="date"
+                [formControl]="form.controls['dateDeNaissance']">
+              <mat-error
+                *ngIf="form.controls['dateDeNaissance'].hasError('required') && form.controls['dateDeNaissance'].touched"
+                class="mat-text-warn">Vous devez inclure la date de Naissance.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Adresse" type="text" [formControl]="form.controls['adresse']">
+              <mat-error *ngIf="form.controls['adresse'].hasError('required') && form.controls['adresse'].touched"
+                class="mat-text-warn">Vous devez inclure une adresse.</mat-error>
+            </mat-form-field>
+          </div>
+          <button routerLink="/client" style="margin-left:5px ; float: right" mat-raised-button>Annuler</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id == -1" [disabled]="form.invalid"
+            type="submit">Ajouter Client</button>
+          <button style="float:right" mat-raised-button class="mat-blue-A700" *ngIf="id != -1" [disabled]="form.invalid"
+            type="submit">Modifier Client</button>
+          <br>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
