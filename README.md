@@ -1,5 +1,5 @@
 
-# Department management
+# GestionLocations
 This project describes the rental management of a car rental agency
 
 ## Installing
